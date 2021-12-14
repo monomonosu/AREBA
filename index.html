@@ -1,8 +1,63 @@
 <html>
-    <head>
 
-    </head>
-    <body>
-        
-    </body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-with, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="content-type" content="text/html; charset = UTF-8">
+    <title>AREBA(アレバ)</title>
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <template>
+            <div>
+                <b-navbar type="dark" variant="dark">
+                    <b-col cols='11'>
+                        <b-navbar-nav class="mr-auto">
+                            <b-nav-item href="#"><img src="image/favicon.ico" width="32px" height="32px"></b-nav-item>
+                            <h1 style="color: beige;">AREBA</h1>
+                        </b-navbar-nav>
+                    </b-col>
+                    <b-col cols='1'>
+                        <b-button>aaa</b-button>
+                    </b-col>
+                </b-navbar>
+            </div>
+        </template>
+        <div>
+            <b-img src="https://picsum.photos/1024/400/?image=41" fluid alt="Responsive image"></b-img>
+        </div>
+        <div>
+            <b-row style="height: 60px;">
+                <b-col style="padding: 0;">
+                    <b-card></b-card>
+                </b-col>
+                <b-col style="padding: 0;">
+                    <b-card></b-card>
+                </b-col>
+                <b-col style="padding: 0;">
+                    <b-card></b-card>
+                </b-col>
+                <b-col style="padding: 0;">
+                    <b-card></b-card>
+                </b-col>
+            </b-row>
+        </div>
+    </div>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            }
+        })
+    </script>
+</body>
+
 </html>
