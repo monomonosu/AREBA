@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-with, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="content-type" content="text/html; charset = UTF-8">
     <title>AREBA(アレバ)</title>
+
+    <!-- BootStrapVue -->
     <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
     <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
 
+    <!-- BootStrapVue -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+
+    <!-- フォントオーサム -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 </head>
 
 <style>
@@ -63,10 +70,11 @@
                                 <b-button v-b-toggle.sidebar-right>≡</b-button>
                                 <b-sidebar id="sidebar-right" right shadow>
                                     <div class="px-3 py-2">
-                                        <b-card>❓AREBAってどんなサイト？</b-card>
-                                        <b-card>🏠HOME</b-card>
-                                        <b-card>🔍検索</b-card>
-                                        <b-card>🌟人気</b-card>
+                                        <b-card><i class="fas fa-question-circle"></i>　AREBAってどんなサイト？</b-card>
+                                        <b-card><i class="fas fa-home"></i>　HOME</b-card>
+                                        <b-card><i class="fas fa-bell"></i>　最新</b-card>
+                                        <b-card><i class="fas fa-search"></i>　検索</b-card>
+                                        <b-card><i class="far fa-star"></i>　人気</b-card>
                                     </div>
                                 </b-sidebar>
                             </div>
