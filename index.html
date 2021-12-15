@@ -13,43 +13,131 @@
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
 </head>
 
+<style>
+    .container1 {
+        width: 720px;
+    }
+
+    .text1 {
+        margin: 5px 0 0 0;
+    }
+    .space{
+        height: 100px;
+    }
+
+    @media (min-width:721px) {
+        .container2 {
+            width: 720px;
+        }
+    }
+
+    @media (max-width:720px) {
+        /* .container1 {
+            box-sizing: inherit;
+        } */
+
+        .container2 {
+            box-sizing: inherit;
+        }
+    }
+</style>
+
 <body>
     <div id="app">
         <!-- <template> -->
-                <b-navbar type="dark" variant="dark">
-                    <div style="width: 720px;margin-left: auto;margin-right: auto;">
-                        <b-row>
-                            <b-col>
-                                <b-navbar-nav class="mr-auto">
-                                    <b-nav-item href="#"><img src="image/favicon.ico" width="32px" height="32px">
-                                    </b-nav-item>
-                                    <h1 style="color: beige;">AREBA</h1>
-                                </b-navbar-nav>
-                            </b-col>
-                            <!-- <b-col align-self="center"></b-col> -->
-                            <b-col cols="auto">
-                                <b-button>≡</b-button>
-                            </b-col>
-                        </b-row>
-                    </div>
-                </b-navbar>
+        <b-navbar type="dark" variant="dark">
+            <div style="margin-left: auto;margin-right: auto;" class="container1">
+                <b-row>
+                    <b-col>
+                        <b-navbar-nav class="mr-auto">
+                            <!-- <b-nav-item href="#">
+                                        <img src="images/favicon.ico">
+                                    </b-nav-item> -->
+                            <h1 style="color: beige;">AREBA</h1>
+                        </b-navbar-nav>
+                    </b-col>
+                    <b-col cols="auto">
+                        <b-button>≡</b-button>
+                    </b-col>
+                </b-row>
+            </div>
+        </b-navbar>
         <!-- </template> -->
 
-        <div style="width: 720px; margin-left: auto;margin-right: auto;">
+        <div style="margin-left: auto; margin-right: auto;" class="container2">
             <b-img src="https://picsum.photos/1024/400/?image=41" fluid alt="Responsive image"></b-img>
 
-            <b-row style="height: 60px; padding: 0 11px;">
+            <b-row style=" padding: 0 11px;">
                 <b-col style="padding: 0;">
-                    <b-card>aaaa</b-card>
+                    <b-card class="text-center">
+                        <b-img src="images/favicon.ico"></b-img>
+                        <p class="text1">道具</p>
+                    </b-card>
                 </b-col>
                 <b-col style="padding: 0;">
-                    <b-card></b-card>
+                    <b-card class="text-center">
+                        <b-img src="images/favicon.ico"></b-img>
+                        <p class="text1">出来事</p>
+                    </b-card>
                 </b-col>
                 <b-col style="padding: 0;">
-                    <b-card></b-card>
+                    <b-card class="text-center">
+                        <b-img src="images/favicon.ico"></b-img>
+                        <p class="text1">システム</p>
+                    </b-card>
                 </b-col>
                 <b-col style="padding: 0;">
-                    <b-card></b-card>
+                    <b-card class="text-center">
+                        <b-img src="images/favicon.ico"></b-img>
+                        <p class="text1">サービス</p>
+                    </b-card>
+                </b-col>
+            </b-row>
+
+            <b-row style=" padding: 0 11px;">
+                <b-col style="padding: 0;">
+                    <b-card class="text-center">
+                        <b-img src="images/favicon.ico"></b-img>
+                        <p class="text1">遊び</p>
+                    </b-card>
+                </b-col>
+                <b-col style="padding: 0;">
+                    <b-card class="text-center">
+                        <b-img src="images/favicon.ico"></b-img>
+                        <p class="text1">ああああ</p>
+                    </b-card>
+                </b-col>
+                <b-col style="padding: 0;">
+                    <b-card class="text-center">
+                        <b-img src="images/favicon.ico"></b-img>
+                        <p class="text1">その他</p>
+                    </b-card>
+                </b-col>
+            </b-row>
+
+            <b-row style=" padding: 0 11px;">
+                <b-col style="padding: 0;">
+                    <b-card class="text-center">
+                        <b-form inline>
+                            <label class="sr-only" for="inline-form-input-username">search</label>
+                            <b-input-group prepend="🔍" class="mb-2 mr-sm-2 mb-sm-0">
+                                <b-form-input id="inline-form-input-username" placeholder="text"></b-form-input>
+                                <b-button variant="primary">検索</b-button>
+                            </b-input-group>
+                        </b-form>
+                    </b-card>
+                </b-col>
+            </b-row>
+
+            <div class="space">
+
+            </div>
+
+            <b-row style=" padding: 0 11px;">
+                <b-col style="padding: 0;">
+                    <b-card class="text-center">
+                        <h1 >最新の投稿</h1>
+                    </b-card>
                 </b-col>
             </b-row>
         </div>
