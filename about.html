@@ -23,6 +23,37 @@
     .header {
         width: 720px;
     }
+
+    .space {
+        height: 100px;
+    }
+
+    .aboutTitle {
+        font-family: sans-Noto Sans JP, sans-serif;
+        ;
+        margin: 32px 5px;
+    }
+
+    .aboutMessage {
+        font-size: 24px;
+        font-family: Noto Sans JP, sans-serif;
+        ;
+        text-align: center;
+        margin: 32px 0;
+        /* 24 */
+    }
+
+    @media (min-width:721px) {
+        .mainContents {
+            width: 720px;
+        }
+    }
+
+    @media (max-width:720px) {
+        .mainContents {
+            box-sizing: inherit;
+        }
+    }
 </style>
 
 <body>
@@ -56,6 +87,39 @@
                 </b-row>
             </div>
         </b-navbar>
+
+        <!-- サイトイメージ -->
+        <div style="margin-left: auto; margin-right: auto;" class="mainContents">
+            <b-img src="https://picsum.photos/1024/400/?image=41" fluid alt="Responsive image"></b-img>
+            <!-- サイトの説明 -->
+            <h1 class="aboutTitle">AREBAとは？</h2>
+                <p class="aboutMessage">
+                    皆さんは友人や家族とこんな会話をした事ありませんか？
+                </p>
+                <p class="aboutMessage">
+                    「こんな道具があると楽しいな」「宝くじに当たったらこんな事がしたいな」「こんな社会システムがあれば生活が豊かになるな」<br>
+                    そんな会話をしていると何だか楽しくなりますよね。<br>
+                </p>
+                <p class="aboutMessage">
+                    AREBAはそんな「こんなのがあれば良いな」という思いを投稿するサイトです。
+                </p>
+                <p class="aboutMessage">
+                    実現する事は難しいかもしれないけど、もしかしたら実現可能かもしれない。<br>
+                    そういった夢や願望を投稿するサイトがあったら面白いかな？と思い、このサイトを製作してみました。
+                </p>
+        </div>
+
+        <div class="space">
+            <!-- 空欄 -->
+        </div>
+
+        <!-- フッター -->
+        <b-row style="height: 100px;">
+            <b-col cols="12" style="background-color: black;display: flex;justify-content: center;align-items: center;">
+                <p style="color: blanchedalmond; text-align: center;">AREBA</p>
+            </b-col>
+        </b-row>
+
     </div>
 
     <script>
