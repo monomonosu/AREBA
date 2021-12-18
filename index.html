@@ -25,6 +25,11 @@
         width: 720px;
     }
 
+    .sideBarButton {
+        width: 100%;
+        text-align: left;
+    }
+
     .text1 {
         margin: 5px 0 0 0;
     }
@@ -68,11 +73,26 @@
                                 <b-button v-b-toggle.sidebar-right>≡</b-button>
                                 <b-sidebar id="sidebar-right" right shadow>
                                     <div class="px-3 py-2">
-                                        <b-card><i class="fas fa-question-circle"></i>　AREBAってどんなサイト？</b-card>
-                                        <b-card><i class="fas fa-home"></i>　HOME</b-card>
-                                        <b-card><i class="fas fa-bell"></i>　最新</b-card>
-                                        <b-card><i class="fas fa-search"></i>　検索</b-card>
-                                        <b-card><i class="far fa-star"></i>　人気</b-card>
+                                        <b-button size="lg" variant="outline-primary" class="sideBarButton">
+                                            <div class="fas fa-question-circle"></div>
+                                            　AREBAってなに？
+                                        </b-button>
+                                        <b-button size="lg" variant="outline-primary" class="sideBarButton">
+                                            <div class="fas fa-home"></div>
+                                            　HOME
+                                        </b-button>
+                                        <b-button size="lg" variant="outline-primary" class="sideBarButton">
+                                            <div class="fas fa-bell"></div>
+                                            　最新の投稿
+                                        </b-button>
+                                        <b-button size="lg" variant="outline-primary" class="sideBarButton">
+                                            <div class="fas fa-search"></div>
+                                            　投稿検索
+                                        </b-button>
+                                        <b-button size="lg" variant="outline-primary" class="sideBarButton">
+                                            <div class="far fa-star"></div>
+                                            　人気投稿
+                                        </b-button>
                                     </div>
                                 </b-sidebar>
                             </div>
