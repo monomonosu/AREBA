@@ -11,9 +11,9 @@
     <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
 
     <!-- BootStrapVue -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script> -->
 
     <!-- フォントオーサム -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -45,6 +45,19 @@
         .mainContents {
             box-sizing: inherit;
         }
+    }
+
+    /* 独自 */
+    .newPostTitle {
+        font-family: sans-Noto Sans JP, sans-serif;
+        margin: 32px 5px;
+    }
+
+    .newPostMessage {
+        font-size: 24px;
+        font-family: Noto Sans JP, sans-serif;
+        text-align: center;
+        margin: 32px 0;
     }
 </style>
 
@@ -95,15 +108,97 @@
             </div>
         </b-navbar>
 
-        <section class="space"></section>
+        <div style="margin-left: auto; margin-right: auto;" class="mainContents">
+            <section class="space"></section>
+            <h1 class="newPostTitle">新規投稿</h1>
+            <p class="newPostMessage">
+                こちらのページで新規投稿ができます。<br>
+                あなたの考える「あれば良いな」を投稿お願いします。
+            </p>
 
+            <b-row style=" padding: 0 11px;">
+                <b-col style="padding: 0;">
+                    <b-card class="text-center">
+                        <template>
+                            <div>
+                                <b-form @submit="onSubmit" @reset="onReset">
+                                    <b-form-group class="mb-3" id="input-group-1" label="タイトル:" label-for="input-1"
+                                        description="記事のタイトルになります">
+                                        <b-form-input id="input-1" v-model="form.title" placeholder="タイトルを入力してください"
+                                            required></b-form-input>
+                                    </b-form-group>
+
+                                    <b-form-group class="mb-3" id="input-group-2" label="本文" label-for="input-2">
+                                        <b-form-input id="input-2" v-model="form.contents" placeholder="本文を入力してください"
+                                            required>
+                                        </b-form-input>
+                                    </b-form-group>
+
+                                    <b-form-group class="mb-3" id="input-group-3" label="ジャンル:" label-for="input-3"
+                                        size="lg">
+                                        <b-form-select id="input-3" v-model="form.genre" :options="genres" required>
+                                        </b-form-select>
+                                    </b-form-group>
+
+                                    <b-button type="submit" variant="primary">Submit</b-button>
+                                    <b-button type="reset" variant="danger">Reset</b-button>
+                                </b-form>
+
+                                <b-card class="mt-3" header="Form Data Result">
+                                    <pre class="m-0">{{ form }}</pre>
+                                </b-card>
+
+                            </div>
+                        </template>
+                    </b-card>
+                </b-col>
+            </b-row>
+
+        </div>
     </div>
+
+    <!-- BootStrapVue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
 
     <script>
         var app = new Vue({
             el: '#app',
             data: {
-                message: 'Hello Vue!'
+                form: {
+                    title: '',
+                    contents: '',
+                    genre: null,
+                },
+                genres: [
+                    { text: '選択してください', value: null }, 
+                    { text: '道具', value: "tool" }, 
+                    { text: '出来事', value: 'event' }, 
+                    { text: 'システム', value: 'system' }, 
+                    { text: '遊び', value: 'amusement' }, 
+                    { text: 'サービス', value: 'service' },
+                    { text: 'その他', value: 'others' }, 
+                ],
+                show: true
+            },
+            methods: {
+                onSubmit(event) {
+                    event.preventDefault()
+                    alert(JSON.stringify(this.form))
+                },
+                onReset(event) {
+                    event.preventDefault()
+                    // Reset our form values
+                    this.form.title = ''
+                    this.form.contents = ''
+                    this.form.genre = null
+                    // Trick to reset/clear native browser form validation state
+                    this.show = false
+                    this.$nextTick(() => {
+                        this.show = true
+                    })
+                }
             }
         })
     </script>
