@@ -7,13 +7,18 @@
     <title>新規投稿｜AREBA(アレバ)</title>
 
     <!-- BootStrapVue -->
-    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
-    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+    <!-- <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" /> -->
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@2.21.1/dist/bootstrap-vue.min.css" />
 
     <!-- BootStrapVue -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@2.21.1/dist/bootstrap-vue.js"></script>
 
     <!-- フォントオーサム -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
@@ -122,23 +127,43 @@
                         <template>
                             <div>
                                 <b-form @submit="onSubmit" @reset="onReset">
-                                    <b-form-group class="mb-3" id="input-group-1" label="タイトル:" label-for="input-1"
-                                        description="記事のタイトルになります">
-                                        <b-form-input id="input-1" v-model="form.title" placeholder="タイトルを入力してください"
+                                    <b-form-group class="mb-3" id="input-group-1" label="お名前：" label-for="input-1"
+                                        description="記事に表示されるお名前となります。名前の表示を希望しない場合は空欄でOKです。">
+                                        <b-form-input id="input-1" v-model="form.name"
+                                            placeholder="お名前を入力してください。空欄でもOKです。"></b-form-input>
+                                    </b-form-group>
+
+                                    <b-form-group class="mb-3" id="input-group-2" label="タイトル：" label-for="input-2">
+                                        <b-form-input id="input-2" v-model="form.title" placeholder="タイトルを入力してください"
                                             required></b-form-input>
                                     </b-form-group>
 
-                                    <b-form-group class="mb-3" id="input-group-2" label="本文" label-for="input-2">
-                                        <b-form-input id="input-2" v-model="form.contents" placeholder="本文を入力してください"
-                                            required>
-                                        </b-form-input>
+                                    <b-form-group class="mb-3" id="input-group-3" label="本文：" label-for="input-3">
+                                        <b-form-textarea rows='8' id="input-3" v-model="form.contents"
+                                            placeholder="本文を入力してください" required>
+                                            </b-form-input>
                                     </b-form-group>
 
-                                    <b-form-group class="mb-3" id="input-group-3" label="ジャンル:" label-for="input-3"
+                                    <b-form-group class="mb-3" id="input-group-4" label="ジャンル：" label-for="input-4"
                                         size="lg">
-                                        <b-form-select id="input-3" v-model="form.genre" :options="genres" required>
+                                        <b-form-select id="input-4" v-model="form.genre" :options="genres" required>
                                         </b-form-select>
                                     </b-form-group>
+
+                                    <p>
+                                        参考画像の添付ができます。<br>
+                                        画像を添付する場合、以下で添付をお願いします。<br>
+                                        画像は最大４枚まで添付することができます。<br>
+                                    </p>
+
+                                    <b-form-file class="mb-3" v-model="form.file1" :state="Boolean(form.file1)"
+                                        placeholder="画像を選択、またはドロップできます" drop-placeholder="ドロップする"></b-form-file>
+                                    <b-form-file class="mb-3" v-model="form.file2" :state="Boolean(form.file2)"
+                                        placeholder="画像を選択、またはドロップできます" drop-placeholder="ドロップする"></b-form-file>
+                                    <b-form-file class="mb-3" v-model="form.file3" :state="Boolean(form.file3)"
+                                        placeholder="画像を選択、またはドロップできます" drop-placeholder="ドロップする"></b-form-file>
+                                    <b-form-file class="mb-3" v-model="form.file4" :state="Boolean(form.file4)"
+                                        placeholder="画像を選択、またはドロップできます" drop-placeholder="ドロップする"></b-form-file>
 
                                     <b-button type="submit" variant="primary">Submit</b-button>
                                     <b-button type="reset" variant="danger">Reset</b-button>
@@ -157,30 +182,32 @@
         </div>
     </div>
 
-    <!-- BootStrapVue -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
 
     <script>
         var app = new Vue({
             el: '#app',
             data: {
                 form: {
+                    name: '',
                     title: '',
                     contents: '',
                     genre: null,
+                    file1: null,
+                    file2: null,
+                    file3: null,
+                    file4: null,
                 },
                 genres: [
-                    { text: '選択してください', value: null }, 
-                    { text: '道具', value: "tool" }, 
-                    { text: '出来事', value: 'event' }, 
-                    { text: 'システム', value: 'system' }, 
-                    { text: '遊び', value: 'amusement' }, 
+                    { text: '選択してください', value: null },
+                    { text: '道具', value: "tool" },
+                    { text: '出来事', value: 'event' },
+                    { text: 'システム', value: 'system' },
+                    { text: '遊び', value: 'amusement' },
                     { text: 'サービス', value: 'service' },
-                    { text: 'その他', value: 'others' }, 
+                    { text: 'その他', value: 'others' },
                 ],
-                show: true
+                show: true,
+
             },
             methods: {
                 onSubmit(event) {
@@ -190,13 +217,14 @@
                 onReset(event) {
                     event.preventDefault()
                     // Reset our form values
-                    this.form.title = ''
-                    this.form.contents = ''
-                    this.form.genre = null
+                    this.form.name = '';
+                    this.form.title = '';
+                    this.form.contents = '';
+                    this.form.genre = null;
                     // Trick to reset/clear native browser form validation state
-                    this.show = false
+                    this.show = false;
                     this.$nextTick(() => {
-                        this.show = true
+                        this.show = true;
                     })
                 }
             }
